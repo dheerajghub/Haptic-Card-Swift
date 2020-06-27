@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
         cv.setCollectionViewLayout(layout, animated: false)
         cv.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
         cv.backgroundColor = .clear
+        cv.delaysContentTouches = false
         return cv
     }()
     
@@ -62,9 +63,19 @@ extension MainViewController:UICollectionViewDelegate , UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
+            let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
+            cell.CardView.transform = .init(scaleX: 0.95, y: 0.95)
+            cell.OverLay.alpha = 1
+        } ,completion:nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
+            let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
+            cell.CardView.transform = .identity
+            cell.OverLay.alpha = 0
+        } ,completion:nil)
     }
     
 }

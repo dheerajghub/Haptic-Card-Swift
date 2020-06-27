@@ -28,11 +28,12 @@ class CardCollectionViewCell: UICollectionViewCell {
         return img
     }()
     
-    let overLay:UIView = {
+    let OverLay:UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = UIColor(white: 0, alpha: 0.4)
         v.layer.cornerRadius = 20
+        v.alpha = 0
         return v
     }()
     
@@ -40,7 +41,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(CardView)
         CardView.addSubview(CustomImage)
-        CardView.addSubview(overLay)
+        CardView.addSubview(OverLay)
         setUpConstraints()
     }
     
@@ -56,10 +57,10 @@ class CardCollectionViewCell: UICollectionViewCell {
             CustomImage.topAnchor.constraint(equalTo: CardView.topAnchor),
             CustomImage.bottomAnchor.constraint(equalTo: CardView.bottomAnchor),
             
-            overLay.leadingAnchor.constraint(equalTo: CardView.leadingAnchor),
-            overLay.trailingAnchor.constraint(equalTo: CardView.trailingAnchor),
-            overLay.topAnchor.constraint(equalTo: CardView.topAnchor),
-            overLay.bottomAnchor.constraint(equalTo: CardView.bottomAnchor),
+            OverLay.leadingAnchor.constraint(equalTo: CardView.leadingAnchor),
+            OverLay.trailingAnchor.constraint(equalTo: CardView.trailingAnchor),
+            OverLay.topAnchor.constraint(equalTo: CardView.topAnchor),
+            OverLay.bottomAnchor.constraint(equalTo: CardView.bottomAnchor),
         ])
     }
     
