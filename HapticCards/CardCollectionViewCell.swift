@@ -15,6 +15,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = .white
         v.layer.cornerRadius = 20
+        v.layer.masksToBounds = true
         return v
     }()
     
@@ -24,7 +25,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         img.clipsToBounds = true
         img.contentMode = .scaleAspectFill
         img.layer.cornerRadius = 20
-        img.layer.masksToBounds = true
         return img
     }()
     

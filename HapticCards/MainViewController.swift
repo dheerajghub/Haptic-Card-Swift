@@ -66,6 +66,7 @@ extension MainViewController:UICollectionViewDelegate , UICollectionViewDataSour
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
             let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
             cell.CardView.transform = .init(scaleX: 0.95, y: 0.95)
+            cell.CustomImage.transform = .init(scaleX: 1.2, y: 1.2)
             cell.OverLay.alpha = 1
         } ,completion:nil)
     }
@@ -74,6 +75,7 @@ extension MainViewController:UICollectionViewDelegate , UICollectionViewDataSour
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
             let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
             cell.CardView.transform = .identity
+            cell.CustomImage.transform = .identity
             cell.OverLay.alpha = 0
         } ,completion:nil)
     }
